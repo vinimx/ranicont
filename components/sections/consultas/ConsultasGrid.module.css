@@ -1,0 +1,221 @@
+/* ============================================================
+   CONSULTAS GRID — ConsultasGrid.module.css
+   ============================================================ */
+
+.section {
+  background: var(--color-bg-site);
+  padding: var(--section-py) 0;
+}
+
+/* ---- Section header ---- */
+.header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto var(--space-12);
+}
+
+.title {
+  margin-bottom: var(--space-5);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ---- Filter bar ---- */
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-12);
+  padding: var(--space-2);
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+  width: fit-content;
+  max-width: 100%;
+}
+
+.filterBtn {
+  position: relative;
+  background: none;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-5);
+  cursor: pointer;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.filterBtn:focus-visible {
+  outline: 2px solid var(--color-blue-primary);
+  outline-offset: 2px;
+}
+
+/* Animated pill background */
+.filterPill {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-blue-primary);
+  z-index: 0;
+}
+
+.filterBtnInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  transition: color 0.25s ease;
+  letter-spacing: var(--tracking-wide);
+}
+
+.filterBtn:hover:not(.filterBtnActive) .filterBtnInner {
+  color: var(--color-blue-primary);
+}
+
+.filterBtnActive .filterBtnInner {
+  color: var(--color-text-inverse);
+  font-weight: var(--weight-semibold);
+}
+
+.filterIcon {
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.filterBtnActive .filterIcon {
+  opacity: 1;
+}
+
+@media (max-width: 575px) {
+  .filterBar {
+    gap: var(--space-1);
+    padding: var(--space-1);
+    border-radius: var(--radius-xl);
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .filterBtn {
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .filterLabel {
+    font-size: var(--text-xs);
+  }
+}
+
+/* ---- Category block ---- */
+.categoryBlock {
+  margin-bottom: var(--space-10);
+}
+
+.categoryBlock:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Category heading (visible in "Todas" mode) ---- */
+.categoryHeading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.categoryHeadingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  color: var(--color-blue-primary);
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.categoryHeadingLabel {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  flex: 1;
+}
+
+.categoryHeadingCount {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background: var(--color-bg-section-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  white-space: nowrap;
+}
+
+/* ---- Links grid ---- */
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-3);
+}
+
+/* When a single category is selected — wider cards, bigger grid */
+.linksGridExpanded {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+@media (max-width: 767px) {
+  .linksGrid,
+  .linksGridExpanded {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .categoryHeadingLabel {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .linksGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .linksGridExpanded {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- Disclaimer notice ---- */
+.notice {
+  margin-top: var(--space-16);
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-light);
+  border-left: 3px solid var(--color-accent-gold);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}

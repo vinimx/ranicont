@@ -1,0 +1,88 @@
+/* ============================================================
+   KEYFRAMES GLOBAIS — Ranicont Design System
+   Animações CSS puras (complementam Motion.dev).
+   Motion.dev cuida das animações de entrada e interação.
+   Estes keyframes são para efeitos contínuos e utilitários.
+   ============================================================ */
+
+/* WhatsApp float pulse ring */
+@keyframes whatsapp-pulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Fade genérico (fallback sem Motion.dev) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Slide up + fade (fallback sem Motion.dev) */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Scale in (fallback sem Motion.dev) */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Shimmer — skeleton loading */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* Spin — loading indicators */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Scroll indicator bounce */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(8px); }
+}
+
+/* Gradient shift — hero background subtlety */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animated gradient flow — hero dynamic background */
+@keyframes gradientFlow {
+  0%   { background-position: 0% center; }
+  33%  { background-position: 50% center; }
+  66%  { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* Float animation — particles */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.4; }
+  25%      { transform: translateY(-20px) translateX(8px); opacity: 0.6; }
+  50%      { transform: translateY(-40px) translateX(-12px); opacity: 0.3; }
+  75%      { transform: translateY(-20px) translateX(6px); opacity: 0.5; }
+}
+
+/* Glow pulse — accent elements */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0,0,255,0.2); }
+  50%       { box-shadow: 0 0 40px rgba(0,0,255,0.45); }
+}
+
+/* ============================================================
+   UTILITY CLASSES DE ANIMAÇÃO CSS
+   Usadas quando Motion.dev não está disponível (SSR, etc.)
+   ============================================================ */
+
+.animate-fadeIn  { animation: fadeIn  0.4s ease forwards; }
+.animate-fadeUp  { animation: fadeUp  0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-scaleIn { animation: scaleIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-spin    { animation: spin 1s linear infinite; }
+.animate-bounce  { animation: scrollBounce 1.5s ease-in-out infinite; }

@@ -1,0 +1,367 @@
+/* ============================================================
+   CONTATO — Contato.module.css
+   Shared styles: layout, info column, form wrapper, map
+   ============================================================ */
+
+/* ---- Page section ---- */
+.contatoSection {
+  background: var(--color-bg-site);
+  padding: var(--section-py) 0;
+}
+
+/* ---- 2-column grid ---- */
+.contatoGrid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+@media (max-width: 991px) {
+  .contatoGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+}
+
+/* ============================================================
+   INFO COLUMN
+   ============================================================ */
+
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.infoHeading {
+  margin-bottom: var(--space-8) !important;
+  line-height: var(--leading-snug);
+}
+
+/* ---- Info cards ---- */
+.infoCards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.infoCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-xl);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  cursor: default;
+  /* override Motion inline transform with CSS variable */
+}
+
+.infoCard:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-blue-primary);
+}
+
+.infoCardIcon {
+  width: 48px;
+  height: 48px;
+  background: var(--color-bg-site);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-blue-primary);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border-light);
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.infoCard:hover .infoCardIcon {
+  background: var(--color-blue-primary);
+  color: white;
+  border-color: var(--color-blue-primary);
+}
+
+.infoCardBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.infoCardTitle {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.infoCardContent {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  line-height: var(--leading-relaxed);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.infoLink {
+  color: var(--color-blue-primary);
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+  transition: color 0.2s ease;
+  word-break: break-word;
+}
+
+.infoLink:hover {
+  color: var(--color-blue-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---- Social block ---- */
+.socialBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.socialLabel {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.socialRow {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.socialBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-light);
+  background: var(--color-bg-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.socialBtn:hover {
+  background: var(--social-color, var(--color-blue-primary));
+  color: white;
+  border-color: var(--social-color, var(--color-blue-primary));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================
+   FORM WRAPPER
+   ============================================================ */
+
+.formWrapper {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10) var(--space-10);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border-light);
+}
+
+@media (max-width: 575px) {
+  .formWrapper {
+    padding: var(--space-8) var(--space-6);
+  }
+}
+
+.formTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-3);
+}
+
+.formSubtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-8);
+}
+
+/* ---- Input states ---- */
+.inputError {
+  border-color: var(--color-error) !important;
+  background: rgba(229, 62, 62, 0.04) !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 4px rgba(229, 62, 62, 0.1) !important;
+}
+
+/* ---- Field error message ---- */
+.fieldError {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  margin-top: var(--space-2);
+  overflow: hidden;
+  line-height: var(--leading-normal);
+}
+
+/* ---- Labels extras ---- */
+.required {
+  color: var(--color-error);
+  margin-left: 2px;
+}
+
+.optional {
+  color: var(--color-text-muted);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-xs);
+  margin-left: var(--space-1);
+}
+
+/* ---- Char count ---- */
+.charCount {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: right;
+  margin-top: var(--space-1);
+}
+
+/* ---- Submit button ---- */
+.submitBtn {
+  width: 100%;
+  justify-content: center;
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-base) !important;
+  margin-top: var(--space-2);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ---- Success banner ---- */
+.successBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: rgba(29, 185, 84, 0.08);
+  border: 1px solid rgba(29, 185, 84, 0.3);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: #15803d;
+  margin-bottom: var(--space-6);
+  overflow: hidden;
+  line-height: var(--leading-relaxed);
+}
+
+.successIcon {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  color: var(--color-success);
+}
+
+/* ---- Form footnote ---- */
+.formNote {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: var(--space-4);
+  line-height: var(--leading-relaxed);
+}
+
+/* ============================================================
+   MAP SECTION
+   ============================================================ */
+
+.mapaSection {
+  background: var(--color-bg-dark);
+  border-top: 1px solid var(--color-border-dark);
+}
+
+.mapaHeader {
+  padding: var(--space-12) 0 var(--space-10);
+  text-align: center;
+}
+
+.mapaTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-snug);
+}
+
+.mapaAddress {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+}
+
+.mapaLinkBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: white;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.mapaLinkBtn:hover {
+  background: white;
+  color: var(--color-blue-deep);
+  border-color: white;
+}
+
+.mapaFrame {
+  width: 100%;
+  height: 420px;
+  border: none;
+  display: block;
+  filter: grayscale(10%) contrast(1.02);
+}
+
+@media (max-width: 767px) {
+  .mapaFrame {
+    height: 300px;
+  }
+
+  .infoCard {
+    padding: var(--space-4) var(--space-5);
+  }
+}
