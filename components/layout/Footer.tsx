@@ -43,7 +43,7 @@ export function Footer() {
                 gap: "var(--space-3)",
               }}
             >
-              <div className="mobile-menu__contact-line">
+              <div className="footer-contact-line">
                 <FaMapMarkerAlt aria-hidden="true" style={{ flexShrink: 0 }} />
                 <span>
                   {SITE.endereco.logradouro},{" "}
@@ -51,7 +51,7 @@ export function Footer() {
                   {SITE.endereco.cidade}
                 </span>
               </div>
-              <div className="mobile-menu__contact-line">
+              <div className="footer-contact-line">
                 <FaClock aria-hidden="true" style={{ flexShrink: 0 }} />
                 <span>{SITE.horario.semana}</span>
               </div>
@@ -159,13 +159,7 @@ export function Footer() {
               <p className="footer-heading" style={{ marginBottom: "var(--space-3)" }}>
                 Horário
               </p>
-              <p
-                style={{
-                  fontSize: "var(--text-sm)",
-                  color: "rgba(255,255,255,0.5)",
-                  lineHeight: "var(--leading-relaxed)",
-                }}
-              >
+              <p className="footer-horario">
                 {SITE.horario.semana}
                 <br />
                 {SITE.horario.almoço}
